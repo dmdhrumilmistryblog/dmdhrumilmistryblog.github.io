@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Configure SSH on Android using Termux | Dhrumil Mistry&#39;s Blog</title>
+<meta name="keywords" content="" />
+<meta name="description" content="Using Termux-SSH Termux SSH helps user to setup SSH server on termux android application, which will help them to execute commands remotely using a command line. If your device is rooted then you can have full control over the android smartphone. You can take screenshots, record and capture audio, video, images remotely using termux apis.
+ This feature might not work on few devices. Refer Termux-API documentation for more information.">
+<meta name="author" content="">
+<link rel="canonical" href="https://dmdhrumilmistryblog.github.io/posts/termux-ssh/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.c88963fe2d79462000fd0fb1b3737783c32855d340583e4523343f8735c787f0.css" integrity="sha256-yIlj/i15RiAA/Q&#43;xs3N3g8MoVdNAWD5FIzQ/hzXHh/A=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://dmdhrumilmistryblog.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://dmdhrumilmistryblog.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://dmdhrumilmistryblog.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://dmdhrumilmistryblog.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://dmdhrumilmistryblog.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.92.0" />
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Configure SSH on Android using Termux" />
+<meta property="og:description" content="Using Termux-SSH Termux SSH helps user to setup SSH server on termux android application, which will help them to execute commands remotely using a command line. If your device is rooted then you can have full control over the android smartphone. You can take screenshots, record and capture audio, video, images remotely using termux apis.
+ This feature might not work on few devices. Refer Termux-API documentation for more information." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dmdhrumilmistryblog.github.io/posts/termux-ssh/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-01-21T14:09:31&#43;05:30" />
+<meta property="article:modified_time" content="2022-01-21T14:09:31&#43;05:30" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Configure SSH on Android using Termux"/>
+<meta name="twitter:description" content="Using Termux-SSH Termux SSH helps user to setup SSH server on termux android application, which will help them to execute commands remotely using a command line. If your device is rooted then you can have full control over the android smartphone. You can take screenshots, record and capture audio, video, images remotely using termux apis.
+ This feature might not work on few devices. Refer Termux-API documentation for more information."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://dmdhrumilmistryblog.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Configure SSH on Android using Termux",
+      "item": "https://dmdhrumilmistryblog.github.io/posts/termux-ssh/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Configure SSH on Android using Termux",
+  "name": "Configure SSH on Android using Termux",
+  "description": "Using Termux-SSH Termux SSH helps user to setup SSH server on termux android application, which will help them to execute commands remotely using a command line. If your device is rooted then you can have full control over the android smartphone. You can take screenshots, record and capture audio, video, images remotely using termux apis.\n This feature might not work on few devices. Refer Termux-API documentation for more information.",
+  "keywords": [
+    
+  ],
+  "articleBody": "Using Termux-SSH Termux SSH helps user to setup SSH server on termux android application, which will help them to execute commands remotely using a command line. If your device is rooted then you can have full control over the android smartphone. You can take screenshots, record and capture audio, video, images remotely using termux apis.\n This feature might not work on few devices. Refer Termux-API documentation for more information.\n  Screenshot  Installation Using bash script  Execute command in Termux App cd $HOME \u0026\u0026 mkdir tmp \u0026\u0026 cd tmp \u0026\u0026 curl -O https://raw.githubusercontent.com/dmdhrumilmistry/Termux-SSH/main/install.sh \u0026\u0026 chmod +x $HOME/tmp/install.sh \u0026\u0026 ./install.sh; cd $HOME ;rm -rf $HOME/tmp   Manually   Open Termux terminal\n  Install Python and git packages\npkg install python git -y   Install required packages\npip install git+https://github.com/dmdhrumilmistry/Termux-SSH.git   Start Termux-SSH and Install required tools\npython -m termux_ssh  use below command in Termux-SSH\n install    Commands List    command description     install installs required tools   start starts SSH server   clear clears console screen   port checks on which port server is running   user get username   genpass generates new password for user   wlanip get wlan ip of the device   connectcmd connect to this using using command printed   torssh start ssh service on tor network   torhost get TOR network hostname   stoptor exit tor network   restart restarts ssh server   close exits Termux-SSH without stopping SSH server   exit stops ssh server and exit    Features  Helps user to setup basic SSH server Automated Setup Instructed Steps Secure script   Dependencies Termux-SSH requires following programs to run properly -\n Python  subprocess module colorama prettytable   OpenSSH Nmap termux-api termux-auth   All the dependencies will be installed automatically when you run install.py script\n  License MIT License\n Have any Issues? Create an issue from Issues Tab\n",
+  "wordCount" : "274",
+  "inLanguage": "en",
+  "datePublished": "2022-01-21T14:09:31+05:30",
+  "dateModified": "2022-01-21T14:09:31+05:30",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://dmdhrumilmistryblog.github.io/posts/termux-ssh/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dhrumil Mistry's Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://dmdhrumilmistryblog.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://dmdhrumilmistryblog.github.io/" accesskey="h" title="Dhrumil Mistry&#39;s Blog (Alt + H)">Dhrumil Mistry&#39;s Blog</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </span>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Configure SSH on Android using Termux
+    </h1>
+    <div class="post-meta"><span title='2022-01-21 14:09:31 +0530 IST'>January 21, 2022</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="using-termux-ssh">Using Termux-SSH<a hidden class="anchor" aria-hidden="true" href="#using-termux-ssh">#</a></h2>
+<p>Termux SSH helps user to setup SSH server on termux android application, which will help them to execute commands remotely using a command line.
+If your device is rooted then you can have full control over the android smartphone. You can take screenshots, record and capture audio, video, images remotely using termux apis.</p>
+<blockquote>
+<p>This feature might not work on few devices. Refer <a href="https://wiki.termux.com/wiki/Termux:API">Termux-API documentation</a> for more information.</p>
+</blockquote>
+<h2 id="heading"><a hidden class="anchor" aria-hidden="true" href="#heading">#</a></h2>
+<h2 id="screenshot">Screenshot<a hidden class="anchor" aria-hidden="true" href="#screenshot">#</a></h2>
+<p><img loading="lazy" src="https://github.com/dmdhrumilmistry/Termux-SSH/blob/main/.images/Termux-SSH-v1.1.0.png?raw=true" alt="Termux-SSH"  />
+</p>
+<h2 id="heading-1"><a hidden class="anchor" aria-hidden="true" href="#heading-1">#</a></h2>
+<h2 id="installation">Installation<a hidden class="anchor" aria-hidden="true" href="#installation">#</a></h2>
+<h3 id="using-bash-script">Using bash script<a hidden class="anchor" aria-hidden="true" href="#using-bash-script">#</a></h3>
+<ul>
+<li>Execute command in Termux App
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd $HOME <span style="color:#f92672">&amp;&amp;</span> mkdir tmp <span style="color:#f92672">&amp;&amp;</span> cd tmp <span style="color:#f92672">&amp;&amp;</span> curl -O https://raw.githubusercontent.com/dmdhrumilmistry/Termux-SSH/main/install.sh <span style="color:#f92672">&amp;&amp;</span> chmod +x $HOME/tmp/install.sh <span style="color:#f92672">&amp;&amp;</span> ./install.sh; cd $HOME ;rm -rf $HOME/tmp
+</code></pre></div></li>
+</ul>
+<h3 id="manually">Manually<a hidden class="anchor" aria-hidden="true" href="#manually">#</a></h3>
+<ul>
+<li>
+<p>Open Termux terminal</p>
+</li>
+<li>
+<p>Install Python and git packages</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pkg install python git -y
+</code></pre></div></li>
+<li>
+<p>Install required packages</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pip install git+https://github.com/dmdhrumilmistry/Termux-SSH.git
+</code></pre></div></li>
+<li>
+<p>Start Termux-SSH and Install required tools</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">python -m termux_ssh
+</code></pre></div><blockquote>
+<p>use below command in Termux-SSH</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">install
+</code></pre></div></li>
+</ul>
+<h2 id="heading-2"><a hidden class="anchor" aria-hidden="true" href="#heading-2">#</a></h2>
+<h2 id="commands-list">Commands List<a hidden class="anchor" aria-hidden="true" href="#commands-list">#</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">command</th>
+<th style="text-align:left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">install</td>
+<td style="text-align:left">installs required tools</td>
+</tr>
+<tr>
+<td style="text-align:center">start</td>
+<td style="text-align:left">starts SSH server</td>
+</tr>
+<tr>
+<td style="text-align:center">clear</td>
+<td style="text-align:left">clears console screen</td>
+</tr>
+<tr>
+<td style="text-align:center">port</td>
+<td style="text-align:left">checks on which port server is running</td>
+</tr>
+<tr>
+<td style="text-align:center">user</td>
+<td style="text-align:left">get username</td>
+</tr>
+<tr>
+<td style="text-align:center">genpass</td>
+<td style="text-align:left">generates new password for user</td>
+</tr>
+<tr>
+<td style="text-align:center">wlanip</td>
+<td style="text-align:left">get wlan ip of the device</td>
+</tr>
+<tr>
+<td style="text-align:center">connectcmd</td>
+<td style="text-align:left">connect to this using using command printed</td>
+</tr>
+<tr>
+<td style="text-align:center">torssh</td>
+<td style="text-align:left">start ssh service on tor network</td>
+</tr>
+<tr>
+<td style="text-align:center">torhost</td>
+<td style="text-align:left">get TOR network hostname</td>
+</tr>
+<tr>
+<td style="text-align:center">stoptor</td>
+<td style="text-align:left">exit tor network</td>
+</tr>
+<tr>
+<td style="text-align:center">restart</td>
+<td style="text-align:left">restarts ssh server</td>
+</tr>
+<tr>
+<td style="text-align:center">close</td>
+<td style="text-align:left">exits Termux-SSH without stopping SSH server</td>
+</tr>
+<tr>
+<td style="text-align:center">exit</td>
+<td style="text-align:left">stops ssh server and exit</td>
+</tr>
+</tbody>
+</table>
+<h3 id="features">Features<a hidden class="anchor" aria-hidden="true" href="#features">#</a></h3>
+<ul>
+<li>Helps user to setup basic SSH server</li>
+<li>Automated Setup</li>
+<li>Instructed Steps</li>
+<li>Secure script</li>
+</ul>
+<h2 id="heading-3"><a hidden class="anchor" aria-hidden="true" href="#heading-3">#</a></h2>
+<h3 id="dependencies">Dependencies<a hidden class="anchor" aria-hidden="true" href="#dependencies">#</a></h3>
+<p><strong><code>Termux-SSH</code></strong> requires following programs to run properly -</p>
+<ul>
+<li><code>Python</code>
+<ul>
+<li><code>subprocess module</code></li>
+<li><code>colorama</code></li>
+<li><code>prettytable</code></li>
+</ul>
+</li>
+<li><code>OpenSSH</code></li>
+<li><code>Nmap</code></li>
+<li><code>termux-api</code></li>
+<li><code>termux-auth</code></li>
+</ul>
+<blockquote>
+<p>All the dependencies will be installed automatically when you run install.py script</p>
+</blockquote>
+<h2 id="heading-4"><a hidden class="anchor" aria-hidden="true" href="#heading-4">#</a></h2>
+<h2 id="licensehttpsgithubcomdmdhrumilmistrytermux-sshblobmainlicense"><a href="https://github.com/dmdhrumilmistry/Termux-SSH/blob/main/LICENSE">License</a><a hidden class="anchor" aria-hidden="true" href="#licensehttpsgithubcomdmdhrumilmistrytermux-sshblobmainlicense">#</a></h2>
+<p>MIT License</p>
+<h2 id="heading-5"><a hidden class="anchor" aria-hidden="true" href="#heading-5">#</a></h2>
+<h3 id="have-any-issues">Have any Issues?<a hidden class="anchor" aria-hidden="true" href="#have-any-issues">#</a></h3>
+<p>Create an issue from <em><strong><a href="https://github.com/dmdhrumilmistry/Termux-SSH/issues">Issues Tab</a></strong></em></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://dmdhrumilmistryblog.github.io/">Dhrumil Mistry&#39;s Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
